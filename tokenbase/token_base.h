@@ -45,7 +45,7 @@ public://Access to container
 	tokenb_iter cbegin() const;
 	tokenb_iter cend() const;
 
-private: //Поля
+private: //Fields
 	hash_func_t hash_function;
 	token_cont_t tokens;
 };
