@@ -14,9 +14,9 @@ public: //Redycing of types
 	using tokenb_iter = token_cont_t::iterator;
 
 public: //Constructors and destructors
-	token_base(hash_func_t hash_function);
-	token_base(hash_func_t hash_function, token_cont_t& tokens);
-	token_base(hash_func_t hash_function, token_cont_t&& tokens);
+	explicit token_base(hash_func_t hash_function);
+	explicit token_base(hash_func_t hash_function, token_cont_t& tokens);
+	explicit token_base(hash_func_t hash_function, token_cont_t&& tokens);
 	token_base(token_base& tb);
 	token_base(token_base&& tb) noexcept;
 	~token_base();
