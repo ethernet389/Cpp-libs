@@ -5,7 +5,7 @@ token_base::token_base(hash_func_t hash_function) : hash_function(hash_function)
 
 
 token_base::token_base(hash_func_t hash_function, token_cont_t const& tokens) //Constructor by hash function and token container
-	: hash_function(hash_function), tokens(tokens) {} 
+	: hash_function(hash_function), tokens(tokens) {}
 
 token_base::token_base(hash_func_t hash_function, token_cont_t&& tokens) //Move constructor by hash function and token container
 	: hash_function(hash_function), tokens(std::move(tokens)) {}
@@ -13,9 +13,9 @@ token_base::token_base(hash_func_t hash_function, token_cont_t&& tokens) //Move 
 token_base::token_base(token_base const& tb)  //Copy constructor
 	: hash_function(tb.hash_function), tokens(tb.tokens) {}
 
- token_base::token_base(token_base&& tb) noexcept//Moving constructor 
+token_base::token_base(token_base&& tb) noexcept//Moving constructor 
 	: hash_function(hash_function), tokens(std::move(tb.tokens))
-{ 
+{
 	tb.~token_base();
 }
 
@@ -88,7 +88,7 @@ token_base::tokenb_iter token_base::cend() const { //Constable end of token cont
 
 //P.S.: should add file input by name, password and "salt"
 
-void token::file_input(std::string const& path_to_file, token_base& token_base) { //File input
+void tb::file_input(std::string const& path_to_file, token_base& token_base) { //File input
 	std::ifstream file_input;
 	file_input.open(path_to_file);
 	if (!file_input.is_open()) return; //File opens check
@@ -101,7 +101,7 @@ void token::file_input(std::string const& path_to_file, token_base& token_base) 
 	file_input.close();
 }
 
-void token::file_output(std::string const& path_to_file, token_base const& token_base) { //File output
+void tb::file_output(std::string const& path_to_file, token_base const& token_base) { //File output
 	std::ofstream file_out;
 	file_out.open(path_to_file);
 	for (auto i = token_base.cbegin(); i != token_base.cend(); ++i) {

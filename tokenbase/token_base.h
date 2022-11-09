@@ -6,7 +6,7 @@
 #include <set>
 
 class token_base {
-//"Salt" - a string which doesn't allow dehashing the token only by name and password
+	//"Salt" - a string which doesn't allow dehashing the token only by name and password
 
 public: //Redycing of types
 	using hash_func_t = std::string(*)(std::string const& name, std::string const& password, std::string const& salt);
@@ -45,12 +45,13 @@ public://Access to container
 	tokenb_iter cbegin() const;
 	tokenb_iter cend() const;
 
-private: 
+private:
 	hash_func_t hash_function;
 	token_cont_t tokens;
 };
 
-namespace token { //Functions for work with token_base class
+namespace tb { //Functions for work with token_base class
+	std::string hash_function(const std::string& name, const std::string& password, const std::string& salt); //Must implements
 	void file_input(std::string const& path_to_file, token_base& token_base);
 	void file_output(std::string const& path_to_file, token_base const& token_base);
 }
