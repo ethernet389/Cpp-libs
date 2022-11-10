@@ -1,5 +1,5 @@
-#ifndef TOKENBASE
-#define TOKENBASE
+#ifndef _TOKENBASE
+#define _TOKENBASE
 
 #include <fstream>
 #include <string>

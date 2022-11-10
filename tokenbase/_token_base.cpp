@@ -91,7 +91,7 @@ token_base::tokenb_iter token_base::cend() const { //Constable end of token cont
 void tb::file_input(std::string const& path_to_file, token_base& token_base) { //File input
 	std::ifstream file_input;
 	file_input.open(path_to_file);
-	if (!file_input.is_open()) return; //File opens check
+	static_assert(!file_input.is_open(), "Can,t open file"); //File opens check
 
 	std::string buffer;
 	while (file_input >> buffer) { //Implicit type casting to bool type (if it reaches the end of the file, an error will occur and 0 will be returned)
